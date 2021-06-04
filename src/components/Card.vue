@@ -1,17 +1,25 @@
 <template>
-  <div class="card mb-3" style="max-width: 540px" :class= "resaltar">
+  <div class="card" :class="highlight">
     <div class="row g-0">
-      <div class="col-md-4">
-        <img class="img-fluid" :src="cardInfo.image" alt="Kitten" style="border:10px solid white" />
+      <div>
+        <img
+          class="img"
+          :src="cardInfo.image"
+          alt="Not Found"
+          width="300"
+          height="200"
+        />
       </div>
-      <div class="col-md-8">
+
+      <div>
         <div class="card-body">
           <h5 class="card-title">{{ cardInfo.title }}</h5>
           <p class="card-text">{{ cardInfo.description }}</p>
-          <p class="card-text">
-            <small class="text-muted">{{ cardInfo.date }}</small>
-          </p>
         </div>
+      </div>
+
+      <div class="card-footer">
+        <small class="text-muted">{{ cardInfo.date }}</small>
       </div>
     </div>
   </div>
@@ -20,7 +28,7 @@
 <script>
 export default {
   name: "Card",
-  
+
   props: {
     info: Object,
   },
@@ -31,14 +39,35 @@ export default {
     };
   },
 
-  computed:{
-    resaltar(){
-      return{
-        "text-white bg-info": this.cardInfo.isImportant
-      }
-    }
-  }
-
-  
+  computed: {
+    highlight() {
+      return {
+        "text-black cardColor": this.cardInfo.isImportant,
+      };
+    },
+  },
 };
 </script>
+
+<style>
+.img {
+  object-position: top;
+  border: 10px solid transparent;
+  object-fit: cover;
+}
+
+.cardColor {
+  background-color: #c3c5c5;
+}
+
+.card-title{
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 22pt
+}
+
+.card-text{
+  font-family: Arial;
+  font-size: 16pt
+}
+</style>

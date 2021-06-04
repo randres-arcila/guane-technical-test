@@ -10,7 +10,19 @@ export default new Vuex.Store({
   mutations: {
 
     add(state, cardInfo){
+      
       state.todoList.push(cardInfo)
+
+      state.todoList = state.todoList.sort((a, b) => {
+        if (a.date < b.date){
+          return -1;
+        }
+        if (a.date > b.date){
+          return 1;
+        }
+        return 0;
+      })
+
     }
 
   },
@@ -19,6 +31,8 @@ export default new Vuex.Store({
     add({commit}, cardInfo){
       commit('add', cardInfo)
     }
+
+
 
   },
   modules: {

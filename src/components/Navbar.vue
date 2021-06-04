@@ -1,14 +1,12 @@
 <template>
-    <div>
-        <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                <img src="@/assets/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                Guane Enterprice
-                </a>
+    <div id="app">
+        <nav id= "navBar" class="navbar navbar-expand-lg ">
+            <div class="imgN">
+                <img src="@/assets/GUANE_logo2.png" alt="" width="300" height="80" class="d-inline-block align-text-mid" style="border:10px">
             </div>
         </nav>
     </div>
+    
 </template>
 
 
@@ -17,3 +15,14 @@ export default {
   name: "Navbar",
 };
 </script>
+
+<style>
+.imgN{
+  border:10px;
+  margin-left: 60px
+}
+
+#navBar {
+  background-color:white;
+}
+</style>
